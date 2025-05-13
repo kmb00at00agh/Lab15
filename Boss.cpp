@@ -80,9 +80,9 @@ namespace GameEngine {
 
    void Boss::equipRareItem() {
        if (rageLevel < 10) {
-           throw logic_error("Cannot equip legendary weapon: Rage level too low!");
+           throw logic_error("Cannot equip rare legendary Item: Rage level too low!");
        }
-       cout << name << " equips a legendary weapon!\n";
+       cout << name << " equips a legendary Item!\n";
    }
 
    void Boss::validateHealth() {
