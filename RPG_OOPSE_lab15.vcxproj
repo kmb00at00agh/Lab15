@@ -153,6 +153,7 @@
     <ClInclude Include="DungeonMode.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="FieldModifier.h" />
+    <ClInclude Include="ForrestMode.h" />
     <ClInclude Include="Minion.h" />
     <ClInclude Include="MinionEnemy.h" />
   </ItemGroup>

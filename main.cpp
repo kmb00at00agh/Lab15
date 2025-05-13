@@ -5,42 +5,33 @@
 #include "BattleArena.h"
 #include "Dummy.h"
 #include "FieldModifier.h"
-#include "ForrestMode.h"
 #include "DungeonMode.h"
 
 using namespace GameEngine;
 
 int main() {
-    DummySpace::Dummy* dummy = new DummySpace::Dummy();
-    dummy->sayProvocation(); 
-    delete dummy;
+    try {
+        Boss boss1("Big foot", -100, 20, 10, SWORDSMAN, 5);
+        boss1.validateHealth();
+    }
+    catch (const invalid_argument& e) {
+        cout << "ERROR: " << e.what() << "\n";
+    }
 
-    ForrestMode::Character* warriorForrest = new ForrestMode::Warrior();
-    warriorForrest->attack(); 
-    delete warriorForrest;
+    try {
+        Boss boss2("Yeti", 120, 10, 15, SHAMAN, 8);
+        boss2.powerStrike();
+    }
+    catch (const runtime_error& e) {
+        cout << "ERROR: " << e.what() << "\n";
+    }
 
-    DungeonMode::Character* warriorDungeon = new DungeonMode::Warrior();
-    warriorDungeon->attack(); 
-    delete warriorDungeon;
-
-
-    cout << "Default Boss Rage Level: " << Boss::getDefaultRageLevel() << endl;
-
-    Boss b1("King", 150, 30, 20, SHAMAN, 12);
-    Boss b2("Prince", 160, 28, 18, SWORDSMAN, 8);
-
-    string inf = "You are a coward!";
-
-    b1.shoutBattleCry(inf);
-
-    cout << "King's rage level: " << b1.getRageLevel() << endl;
-    cout << "Prince's rage level: " << b2.getRageLevel() << endl;
-
-    cout << "Total Characters Created: " << Character::getObjectCount() << endl;
-    cout << "Total Bosses Created: " << Boss::getObjectCount() << endl;
-
-    
-    
-
+    try {
+        Boss boss3("jin", 150, 25, 20, DRUID, 5);
+        boss3.equipRareItem();
+    }
+    catch (const logic_error& e) {
+        cout << "ERROR: " << e.what() << "\n";
+    }
     return 0;
 }

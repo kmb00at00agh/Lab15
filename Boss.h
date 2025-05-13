@@ -20,6 +20,9 @@ namespace GameEngine {
         static int getDefaultRageLevel();
         void shoutBattleCry(const string& cry) const; // takes const argument
         int getRageLevel() const;
+        void powerStrike();
+        void equipRareItem();
+        void validateHealth();
 
     };
 

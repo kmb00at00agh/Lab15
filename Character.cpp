@@ -21,7 +21,7 @@ namespace GameEngine {
         type = SWORDSMAN;
     }
 
-    Character::~Character() { cout << "Character " << name << " destroyed. (stock character destructor)\n"; }
+    Character::~Character() { /*cout << "Character " << name << " destroyed. (stock character destructor)\n";*/ }
 
     string Character::getName() const {
         return name;
