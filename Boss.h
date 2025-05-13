@@ -6,6 +6,7 @@ namespace GameEngine {
     class Boss : public Character {
     private:
         int rageLevel;
+        bool isDizzy;
 
     public:
         Boss(string n, int h, int s, int d, CharacterType t, int rage);
@@ -20,9 +21,12 @@ namespace GameEngine {
         static int getDefaultRageLevel();
         void shoutBattleCry(const string& cry) const; // takes const argument
         int getRageLevel() const;
+        void setDizzy(bool dizzy);
+        bool getDizzy() const;
         void powerStrike();
         void equipRareItem();
         void validateHealth();
+
 
     };
 

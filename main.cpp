@@ -33,5 +33,15 @@ int main() {
     catch (const logic_error& e) {
         cout << "ERROR: " << e.what() << "\n";
     }
+
+    try {
+        Boss boss4("Thor", 150, 30, 20, SWORDSMAN, 5);
+        boss4.setDizzy(true);  
+        boss4.powerStrike();   
+    }
+    catch (const logic_error& e) {
+        cout << "ERROR - Logic Error: " << e.what() << "\n";
+    }
+    
     return 0;
 }

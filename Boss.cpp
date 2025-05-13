@@ -12,6 +12,8 @@ namespace GameEngine {
        defense = d;
        type = t;
        rageLevel = rage;
+       isDizzy = false; // default state
+
 
        ++Character::objectCount;
        cout << "Boss " << name << " enters the battlefield!\n";
@@ -75,6 +77,9 @@ namespace GameEngine {
        if (strength < 15) {
            throw runtime_error("Strength too low for Power Strike!");
        }
+       if (isDizzy == true) {
+           throw logic_error(name + " is dizzy and cannot perform a power attack!");
+       }
        cout << name << " uses Power Strike with strength " << strength << "!\n";
    }
 
@@ -89,6 +94,14 @@ namespace GameEngine {
    if (getHealth() < 0) {
            throw invalid_argument("Health cannot be negative.");
        }
+   }
+
+   void Boss::setDizzy(bool dizzy) {
+       isDizzy = dizzy;
+   }
+
+   bool Boss::getDizzy() const {
+       return isDizzy;
    }
 
 }
