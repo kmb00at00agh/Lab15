@@ -6,42 +6,20 @@
 #include "Dummy.h"
 #include "FieldModifier.h"
 #include "DungeonMode.h"
+#include "UI.h"
 
 using namespace GameEngine;
 
 int main() {
-    try {
-        Boss boss1("Big foot", -100, 20, 10, SWORDSMAN, 5);
-        boss1.validateHealth();
-    }
-    catch (const invalid_argument& e) {
-        cout << "ERROR: " << e.what() << "\n";
-    }
+    Boss* boss = new Boss("MadDog", 150, 25, 10, SWORDSMAN, 8);
+    UI* uiObserver = new UI();
 
-    try {
-        Boss boss2("Yeti", 120, 10, 15, SHAMAN, 8);
-        boss2.powerStrike();
-    }
-    catch (const runtime_error& e) {
-        cout << "ERROR: " << e.what() << "\n";
-    }
+    boss->addObserver(uiObserver);  // Hook UI to observe the boss
+    boss->getHit(30);               // UI should get notified
+    boss->heal(20);                 // UI gets notified again
 
-    try {
-        Boss boss3("jin", 150, 25, 20, DRUID, 5);
-        boss3.equipRareItem();
-    }
-    catch (const logic_error& e) {
-        cout << "ERROR: " << e.what() << "\n";
-    }
+    delete boss;
+    delete uiObserver;
 
-    try {
-        Boss boss4("Thor", 150, 30, 20, SWORDSMAN, 5);
-        boss4.setDizzy(true);  
-        boss4.powerStrike();   
-    }
-    catch (const logic_error& e) {
-        cout << "ERROR - Logic Error: " << e.what() << "\n";
-    }
-    
     return 0;
 }

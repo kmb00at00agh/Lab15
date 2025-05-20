@@ -40,12 +40,14 @@ namespace GameEngine {
         int actualDamage = max(0, damage - defense);
         health -= actualDamage;
         cout << name << " takes " << actualDamage << " damage! Health: " << health << "\n";
+        notifyObservers();
         if (health <= 0) die();
     }
 
     void Character::heal(int amount) {
         health += amount;
         cout << name << " heals for " << amount << " HP! Health is now " << health << "\n";
+        notifyObservers();
     }
 
     void Character::spawn() {
