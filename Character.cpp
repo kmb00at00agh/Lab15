@@ -34,6 +34,7 @@ namespace GameEngine {
     void Character::attack(Enemy& enemy) {
         cout << name << " attacks " << enemy.getName() << "!\n";
         enemy.getHit(strength);
+        notifyObservers();
     }
 
     void Character::getHit(int damage) {
@@ -52,10 +53,12 @@ namespace GameEngine {
 
     void Character::spawn() {
         cout << "Mighty " << name << " appears!\n";
+        notifyObservers();
     }
 
     void Character::die() {
         cout << name << " has died!\n";
+        notifyObservers();
     }
 
     // Define the static member
