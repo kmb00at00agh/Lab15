@@ -152,6 +152,7 @@
     <ClInclude Include="Dummy.h" />
     <ClInclude Include="DungeonMode.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="Factory.h" />
     <ClInclude Include="FieldModifier.h" />
     <ClInclude Include="ForrestMode.h" />
     <ClInclude Include="Header.h" />

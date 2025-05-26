@@ -1,4 +1,4 @@
-#include "Boss.h"
+﻿#include "Boss.h"
 #include "Minion.h"
 #include "BossEnemy.h"
 #include "MinionEnemy.h"
@@ -7,19 +7,47 @@
 #include "FieldModifier.h"
 #include "DungeonMode.h"
 #include "UI.h"
+#include "Factory.h"
 
 using namespace GameEngine;
 
 int main() {
-    Boss* boss = new Boss("MadDog", 150, 25, 10, SWORDSMAN, 8);
-    UI* uiObserver = new UI();
-
-    boss->addObserver(uiObserver);  
-    boss->getHit(30);               
-    boss->heal(20);     
     
-    delete boss;
-    delete uiObserver;
+    // Using manually defined factories
+    CharacterFactory* bossFactory = new BossFactory();
+    CharacterFactory* minionFactory = new MinionFactory();
+    EnemyFactory* minonEnemyFactory = new EnemyMinionFactory();
+    EnemyFactory* bossEnemyFactory = new EnemyBossFactory();
 
-    return 0;
+    Character* boss = bossFactory->createCharacter();
+    Character* minion = minionFactory->createCharacter();
+    Enemy* enemyMinion = minonEnemyFactory->createEnemy();
+    Enemy* enemyBoss = bossEnemyFactory->createEnemy();
+
+    boss->describe();  
+    minion->describe();   
+    enemyMinion->describe();  
+    enemyBoss->describe();     
+
+    // Using AutoFactory
+    AutoCharacterFactory<Boss> autoBossFactory;
+    Character* autoBoss = autoBossFactory.createCharacter();
+    autoBoss->describe();
+
+    AutoEnemyFactory<MinionEnemy> autoMinionEnemyFactory;
+    Enemy* autoMinionEnemy = autoMinionEnemyFactory.createEnemy();
+    autoMinionEnemy->describe();
+    
+    // Cleanup
+    delete bossFactory;
+    delete minionFactory;
+    delete minonEnemyFactory;
+    delete bossEnemyFactory;
+    delete boss;
+    delete minion;
+    delete enemyMinion;
+    delete enemyBoss;
+    delete autoBoss;
+    delete autoMinionEnemy;
+
 }
