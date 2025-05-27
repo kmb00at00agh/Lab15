@@ -7,7 +7,7 @@
 namespace GameEngine {
     class CharacterFactory {
     public:
-        virtual Character* createCharacter() = 0;  // Use the fully qualified name to resolve the identifier  
+        virtual Character* createCharacter() = 0;   
         virtual ~CharacterFactory() {}
     };
     class EnemyFactory {
@@ -44,19 +44,29 @@ namespace GameEngine {
         }
     };
     
-    template <typename T>
+    /*template <typename T>
     class AutoCharacterFactory : public CharacterFactory {
+    private:
+        std::string name;
+        int health;
+        int strength;
+        int defense;
+        CharacterType type;
+        int extra; 
     public:
+        AutoCharacterFactory(const std::string& n, int h, int s, int d, CharacterType t, int e)
+            : name(n), health(h), strength(s), defense(d), type(t), extra(e) {}
+
         Character* createCharacter() override {
-            return new T("AutoBoss", 150, 30, 20, CharacterType::SWORDSMAN, 70); // customize params if needed
+            return new T(name, health, strength, defense, type, extra);
         }
-    };
+    };*/
 
     template <typename T>
     class AutoEnemyFactory : public EnemyFactory {
     public:
         Enemy* createEnemy() override {
-            return new T("AutoEnemy", 80, 15, 5, EnemyType::WITCH, true); // customize params if needed
+            return new T("AutoEnemy", 80, 15, 5, EnemyType::WITCH, true); 
         }
     };
 }

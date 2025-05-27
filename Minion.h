@@ -14,6 +14,14 @@ namespace GameEngine {
         void describe() const override;
         ~Minion();
         Character* operator+(const Character& other) const override;
+        void logStatus() override {
+            std::cout << "[Minion] HP: " << health << ", Strength: " << strength << ", Defense: " << defense << std::endl;
+        }
+        void performTask() override
+        {
+            std::this_thread::sleep_for(std::chrono::seconds(2));
+            std::cout << "Minion task coplete." << std::endl;
+        }
     };
 
 }

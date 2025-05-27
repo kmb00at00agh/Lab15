@@ -12,6 +12,9 @@ namespace GameEngine {
         void sneakAttack(Character& target);
         void describe() const override;
         ~MinionEnemy();
+        void logStatus() override {
+            std::cout << "[Minion Enemy] HP: " << health << ", Damage: " << damage << ", Defense: " << defense << std::endl;
+        }
     };
 }
 

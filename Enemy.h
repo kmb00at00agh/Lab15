@@ -34,6 +34,7 @@ namespace GameEngine {
         int getDamage() const;
         int getDefense() const;
         void increaseHealth(int amount);
+        virtual void logStatus() = 0;
     };
 
 }

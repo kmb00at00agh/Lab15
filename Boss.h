@@ -26,8 +26,14 @@ namespace GameEngine {
         void powerStrike();
         void equipRareItem();
         void validateHealth();
-
-
+        void logStatus() override {
+            std::cout << "[Boss] HP: " << health << ", Strength: " << strength << ", Defense: " << defense << std::endl;
+        }
+        void performTask() override
+        {
+            std::this_thread::sleep_for(std::chrono::seconds(1));
+            std::cout << "Boss task complete." << std::endl;
+        }
     };
 
 }

@@ -36,6 +36,8 @@ namespace GameEngine {
         virtual Character* operator+(const Character& other) const = 0;
         static int objectCount;  // Tracks total number of objects created
         static int getObjectCount();  // Returns object count
+        virtual void logStatus() = 0;
+        virtual void performTask() = 0;
 
         void addObserver(Observer* observer) override {
             observers.push_back(observer);

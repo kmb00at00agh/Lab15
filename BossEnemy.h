@@ -12,6 +12,9 @@ namespace GameEngine {
         void empower();
         ~BossEnemy();
         void describe() const override;
+        void logStatus() override {
+            std::cout << "[Enemy] HP: " << health << ", Damage: " << damage << ", Defense: " << defense << std::endl;
+        }
     };
 
 }
