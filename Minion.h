@@ -1,5 +1,8 @@
 #pragma once
 #include "Character.h"
+#include <thread> // Add this include for std::this_thread
+#include <chrono> // Add this inc
+
 
 namespace GameEngine {
 
@@ -19,8 +22,12 @@ namespace GameEngine {
         }
         void performTask() override
         {
-            std::this_thread::sleep_for(std::chrono::seconds(2));
-            std::cout << "Minion task coplete." << std::endl;
+            std::this_thread::sleep_for(std::chrono::seconds(5));
+            std::cout << "\033[35mMinion task coplete.\033[0m" << std::endl;
+        }
+        std::string computeResult() override {
+            std::this_thread::sleep_for(std::chrono::seconds(1)); // shorter delay
+            return "Minion result: quick report!";
         }
     };
 

@@ -38,7 +38,7 @@ namespace GameEngine {
         static int getObjectCount();  // Returns object count
         virtual void logStatus() = 0;
         virtual void performTask() = 0;
-
+        virtual std::string computeResult() = 0;
         void addObserver(Observer* observer) override {
             observers.push_back(observer);
         }

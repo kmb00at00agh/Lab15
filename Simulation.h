@@ -1,6 +1,8 @@
 #include <iostream>
 #include <thread>
 #include <mutex>
+#include <vector>
+#include "Character.h"
 #include "Boss.h"
 #include "MinionEnemy.h"
 
@@ -81,9 +83,13 @@ public:
         }
     }
 
-    void runPerformTask(Character* character)
+    void runPerformTask(GameEngine::Character* character)
     {
         character->performTask();
+    }
+
+    std::string runComputeResult(GameEngine::Character* character) {
+        return character->computeResult();
     }
 };
 
