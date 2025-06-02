@@ -91,5 +91,12 @@ public:
     std::string runComputeResult(GameEngine::Character* character) {
         return character->computeResult();
     }
+    int runGenerate(GameEngine::Character* character) {
+        return character->generateValue();
+    }
+
+    void runProcess(GameEngine::Character* character, int value) {
+        character->processValue(value);
+    }
 };
 

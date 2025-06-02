@@ -46,6 +46,14 @@ namespace GameEngine {
             std::this_thread::sleep_for(std::chrono::seconds(10)); // longer delay
             return "Boss result: massive power surge!";
         }
+        int generateValue() override {
+            std::this_thread::sleep_for(std::chrono::seconds(2));
+            return 50;
+        }
+
+        void processValue(int val) override {
+            std::cout << "Boss processed value: " << val * 2 << std::endl;
+        }
 
     };
 

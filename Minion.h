@@ -29,6 +29,14 @@ namespace GameEngine {
             std::this_thread::sleep_for(std::chrono::seconds(1)); // shorter delay
             return "Minion result: quick report!";
         }
+        int generateValue() override {
+            std::this_thread::sleep_for(std::chrono::seconds(1));
+            return 20;
+        }
+
+        void processValue(int val) override {
+            std::cout << "Minion processed value: " << val + 10 << std::endl;
+        }
     };
 
 }

@@ -1,2 +1,8 @@
-﻿  main.cpp
+﻿  BattleArena.cpp
+  Boss.cpp
+  Character.cpp
+  Enemy.cpp
+  FieldModifier.cpp
+  main.cpp
+  Generating Code...
   RPG_OOPSE_lab15.vcxproj -> C:\Users\brodz\source\repos\RPG_OOPSE_lab15\x64\Debug\RPG_OOPSE_lab15.exe

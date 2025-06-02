@@ -39,6 +39,8 @@ namespace GameEngine {
         virtual void logStatus() = 0;
         virtual void performTask() = 0;
         virtual std::string computeResult() = 0;
+        virtual int generateValue() = 0;
+        virtual void processValue(int val) = 0;
         void addObserver(Observer* observer) override {
             observers.push_back(observer);
         }
