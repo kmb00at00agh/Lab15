@@ -149,6 +149,7 @@
     <ClInclude Include="Boss.h" />
     <ClInclude Include="BossEnemy.h" />
     <ClInclude Include="Character.h" />
+    <ClInclude Include="CharacterGroup.h" />
     <ClInclude Include="Dummy.h" />
     <ClInclude Include="DungeonMode.h" />
     <ClInclude Include="Enemy.h" />

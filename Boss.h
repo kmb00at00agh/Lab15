@@ -55,6 +55,14 @@ namespace GameEngine {
             std::cout << "Boss processed value: " << val * 2 << std::endl;
         }
 
+        void performAction() const override {
+            std::cout << "Boss performs a powerful attack!\n";
+        }
+
+        int getPowerLevel() const override {
+            return 100;
+        }
+
     };
 
 }

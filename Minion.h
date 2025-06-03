@@ -37,6 +37,13 @@ namespace GameEngine {
         void processValue(int val) override {
             std::cout << "Minion processed value: " << val + 10 << std::endl;
         }
+        void performAction() const override {
+            std::cout << "Minion strikes weakly.\n";
+        }
+
+        int getPowerLevel() const override {
+            return 220;
+        }
     };
 
 }

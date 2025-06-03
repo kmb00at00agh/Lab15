@@ -9,7 +9,7 @@ using namespace std;
 
 namespace GameEngine {
 
-    enum CharacterType { SWORDSMAN, DRUID, SHAMAN };
+    enum CharacterType { SWORDSMAN, DRUID, SHAMAN, HOARD };
     class Enemy;  // Forward declaration
     class Character : public Subject {
     protected:
@@ -22,6 +22,8 @@ namespace GameEngine {
     public:
         Character(string n, int h, int s, int d, CharacterType t);
         Character();
+        virtual void performAction() const = 0;
+        virtual int getPowerLevel() const = 0;
         virtual ~Character();
         string getName() const;
         virtual void describe() const = 0;
